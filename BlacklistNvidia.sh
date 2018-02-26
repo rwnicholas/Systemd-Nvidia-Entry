@@ -7,8 +7,7 @@ printf "Do you wish to proceed? Clr-boot-manager will RUN (on Solus)!\n"
 select yn in "Yes" "No"; do
     case $yn in
         "Yes") if [ $systemRelease == "Solus" ]; then
-				#sudo clr-boot-manager update
-				echo "Yeay"
+				sudo clr-boot-manager update
 			fi
 			break;;
         "No") exit;;
