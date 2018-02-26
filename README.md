@@ -14,7 +14,7 @@
 *   Rerun the script(s) after a kernel update will make the created entry use the new kernel.
 
 ## Caution
-* /usr/lib/modprobe.d/nvidia.conf is moved.
+* /etc/X11/xorg.conf.d/00-ldm.conf and /usr/lib/modprobe.d/nvidia.conf are moved.
 
 ## Issues
 
