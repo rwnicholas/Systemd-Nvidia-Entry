@@ -1,6 +1,7 @@
 # Systemd-Nvidia-Entry
 * Hi, the idea from switching on boot is from [Grub-Nvidia-Entry](https://github.com/Superdanby/Grub-Nvidia-Entry). This is a fork to implement this method on systemd.
 * I'm trying this using Solus OS, but I believe that others systems can work with some tweaks.
+* [Download here](https://www.dropbox.com/s/ijrozhageftvy1p/OptimusScript.zip?dl=0) the script switchgpu.sh and the Makefile
 ## Prerequisites
 *   UEFI
 *   Nvidia driver
