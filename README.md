@@ -11,6 +11,7 @@
 ## Instructions
 *   After installing Nvidia drivers, run BlacklistNvidia.sh.
 *   Rerun the script(s) after a kernel update will make the created entry use the new kernel.
+*	To switch from nvidia to nouveau you should run the script switchgpu.sh and reboot.
 
 ## Caution
 * /etc/X11/xorg.conf.d/00-ldm.conf is moved to ~/.cache/MarechalLima while using nouveau.
