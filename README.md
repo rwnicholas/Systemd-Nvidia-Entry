@@ -9,12 +9,12 @@
 *   Solus OS
 
 ## Instructions
-*   After installing Nvidia drivers, run BlacklistNvidia.sh.
-*   Rerun the script(s) after a kernel update will make the created entry use the new kernel.
-*	To switch from nvidia to nouveau you should run the script switchgpu.sh and reboot.
+*   After installing Nvidia drivers, and rebooting...
+*	Use switchgpu.sh to switch between nouveau(battery economy) and nvidia(performance)
+*	You can also install with "make install" and use switchgpu from any place on terminal.
 
 ## Caution
-* /etc/X11/xorg.conf.d/00-ldm.conf is moved to ~/.cache/MarechalLima while using nouveau.
+* /etc/X11/xorg.conf.d/00-ldm.conf is moved to ~/.cache/MarechalLima while using nouveau. MAKE A COPY FOR BACKUP!
 * /usr/lib/modprobe.d/nvidia.conf has 'blacklist' commented while using nouveau.
 
 ## Issues
