@@ -14,7 +14,7 @@
 *   Rerun the script(s) after a kernel update will make the created entry use the new kernel.
 
 ## Caution
-
+* /usr/lib/modprobe.d/nvidia.conf is moved.
 
 ## Issues
 
