@@ -20,11 +20,11 @@ printf "Original boot options with Nvidia modules disabled!\n"
 configFile=`ls /boot/loader/entries/ | grep $systemRelease`
 echo $configFile
 # # Enables nouveau by default
-# sudo sed -i 's/\<rd.driver.blacklist=nouveau\> //g' /etc/default/grub
-# sudo sed -i 's/\<modprobe.blacklist=nouveau\> //g' /etc/default/grub
-# sudo sed -i 's/\<nvidia-drm.modeset=1\> //g' /etc/default/grub
+# sudo sed -i 's/\<rd.driver.blacklist=nouveau\> //g' /boot/loader/entries/$configFile
+# sudo sed -i 's/\<modprobe.blacklist=nouveau\> //g' /boot/loader/entries/$configFile
+# sudo sed -i 's/\<nvidia-drm.modeset=1\> //g' /boot/loader/entries/$configFile
 #
-# sudo cat /etc/default/grub
+# sudo cat /boot/loader/entries/$configFile
 #
 # printf "\nNew boot menu entry with Nvidia modules enabled:\n"
 #
