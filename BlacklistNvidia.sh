@@ -1,4 +1,4 @@
-# https://github.com/Superdanby/Grub-Nvidia-Entry
+# https://github.com/MarechalLima/Systemd-Nvidia-Entry
 
 Curnel=`uname -r`
 if [[ `sudo sed -n '/^menuentry/,/}/p;' /boot/efi/EFI/fedora/grub.cfg | sed '/}/q' | grep $Curnel` == '' ]];then
@@ -11,16 +11,6 @@ if [[ `sudo sed -n '/^menuentry/,/}/p;' /boot/efi/EFI/fedora/grub.cfg | sed '/}/
         esac
     done
 fi
-
-printf "\nTo ensure Gnome detects the dGPU, switcheroo-control.service has to be kept alive.\n\n"
-if [[ `sudo cat /usr/lib/systemd/system/switcheroo-control.service | grep Restart=` == '' ]]; then
-    sudo sed -i '/ExecStart/s/$/\nRestart=on-success/' /usr/lib/systemd/system/switcheroo-control.service
-fi
-if [[ `sudo cat /usr/lib/systemd/system/switcheroo-control.service | grep RestartSec=` == '' ]]; then
-    sudo sed -i '/Restart=/s/$/\nRestartSec=5s/' /usr/lib/systemd/system/switcheroo-control.service
-fi
-
-sudo cat /usr/lib/systemd/system/switcheroo-control.service
 
 printf "\n----------------------\n\n"
 printf "Configuring GRUB Menu...\n"
@@ -63,5 +53,3 @@ if [[ `sudo cat /etc/grub.d/40_custom | grep nvidia-drm.modeset=1` == '' ]]; the
 fi
 
 sudo cat /etc/grub.d/40_custom
-
-sudo grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg
