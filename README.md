@@ -21,4 +21,5 @@
 * /etc/X11/xorg.conf.d/00-ldm.conf is moved to ~/.cache/MarechalLima while using nouveau. MAKE A COPY FOR BACKUP! (the Makefile will create a copy at ~/.cache/00-ldm.conf.bkp)
 * /usr/lib/modprobe.d/nvidia.conf has 'blacklist' commented while using nouveau.
 
-## Issues
+# Disclaimer
+* **USE AT YOUR OWN RISK**
