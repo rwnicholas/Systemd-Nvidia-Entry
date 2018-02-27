@@ -4,9 +4,8 @@ install:
 	sudo chmod +x /usr/bin/switchgpu
 uninstall:
 	@if ! [[ `lsmod | grep nouveau` == '' ]]; then\
-		@echo "Your system is going to reboot, please SAVE YOUR WORK before the password!";\
-		sudo /usr/bin/switchgpu;\
-		sudo rm -f /usr/bin/switchgpu;\
+		echo "Your system is going to reboot, please SAVE YOUR WORK before the password!";\
+		/usr/bin/switchgpu && sudo rm -f /usr/bin/switchgpu;\
 		sudo rm -f /usr/lib/modprobe.d/optimus.conf;\
 		sudo reboot;\
 	else\
