@@ -5,7 +5,7 @@ if ! [ -d ~/.cache/MarechalLima/ ]; then ## checks if the directory exist
 	mkdir ~/.cache/MarechalLima/ ## if it doesn't exist, here it's created
 fi
 if ! [ -e /usr/lib/modprobe.d/optimus.conf ]; then ## checks if the file exist
-	echo 'blacklist nvidia,nvidia_drm,nvidia_modeset,nvidia_uvm' | sudo tee /usr/lib/modprobe.d/optimus.conf ## if it doesn't exist, here it's created
+	echo -e 'blacklist nvidia\nblacklist nvidia_drm\nblacklist nvidia_modeset\nblacklist nvidia_uvm' | sudo tee /usr/lib/modprobe.d/optimus.conf ## if it doesn't exist, here it's created
 fi
 
 if [[ `lsmod | grep nouveau` == '' ]]; then
