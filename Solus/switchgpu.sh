@@ -14,9 +14,9 @@ if [[ `lsmod | grep nouveau` == '' ]]; then
 		sudo mv -f /etc/X11/xorg.conf.d/00-ldm.conf ~/.cache/MarechalLima/00-ldm.conf
 		sudo sed -i "s/blacklist/#blacklist/g" /usr/lib/modprobe.d/nvidia.conf
 		sudo sed -i "s/#blacklist/blacklist/g" /usr/lib/modprobe.d/optimus.conf
-		echo "Nouveau, reboot"
+		notify-send -i gnome-settings "Nouveau, please reboot."
 	else
-		echo "Already on Nouveau! Please Reboot"
+		notify-send -i gnome-settings "Already on Nouveau! Please reboot!"
 	fi
 else
 	if ! [[ `sudo cat /usr/lib/modprobe.d/nvidia.conf | grep \#` == '' ]]; then
@@ -24,8 +24,8 @@ else
 		sudo sed -i "s/#blacklist/blacklist/g" /usr/lib/modprobe.d/nvidia.conf
 		sudo sed -i "s/blacklist/#blacklist/g" /usr/lib/modprobe.d/optimus.conf
 		#sudo sed -i 's/ modprobe.blacklist=nvidia,nvidia_drm,nvidia_modeset,nvidia_uvm//g' /boot/loader/entries/$configFile
-		echo "Nvidia, reboot"
+		notify-send -i nvidia "Nvidia, please reboot."
 	else
-		echo "Already on Nvidia! Please Reboot"
+		notify-send -i nvidia "Already on Nvidia! Please reboot!"
 	fi
 fi
