@@ -5,6 +5,10 @@ fi
 if ! [ -e /usr/lib/modprobe.d/optimus.conf ]; then ## checks if the file exist
 	echo -e 'blacklist nvidia\nblacklist nvidia_drm\nblacklist nvidia_modeset\nblacklist nvidia_uvm' | sudo tee /usr/lib/modprobe.d/optimus.conf ## if it doesn't exist, here it's created
 fi
+if [[ `whoami` == "root" ]]; then
+	echo "Hey! DO NOT use sudo"
+	exit
+fi
 
 if [[ `lsmod | grep nouveau` == '' ]]; then
 	if [[ `sudo cat /usr/lib/modprobe.d/nvidia.conf | grep \#` == '' ]]; then
