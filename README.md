@@ -1,4 +1,4 @@
-# Systemd-Nvidia-Entry
+# Solus-Optimus-Switch
 ### Hey, if your EFI partition is not mounted at /boot, use the files that are inside the folder **Solus**
 * Hi, the idea from switching on boot is from [Grub-Nvidia-Entry](https://github.com/Superdanby/Grub-Nvidia-Entry). This is a fork to implement this method on systemd.
 * I'm trying this using Solus, but I believe that others systems can work with some tweaks.
