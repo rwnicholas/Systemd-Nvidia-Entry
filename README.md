@@ -4,8 +4,7 @@
 * **[Download here for Solus](https://www.dropbox.com/s/0ztla0bei6au6q2/SolusOptimusScript.zip?dl=0) the script switchgpu.sh and the Makefile for Solus**
 
 ## Prerequisites
-*   UEFI
-*   Nvidia driver
+*   Nvidia driver
 
 ## Supported Operating Systems
 *   Solus
