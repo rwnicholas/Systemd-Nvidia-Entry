@@ -14,7 +14,7 @@ uninstall:
 		sudo rm -f /usr/bin/gpu-status;\
 		sudo rm -f /usr/lib/modprobe.d/optimus.conf;\
 		sudo rm -f /usr/share/xdg/autostart/gpu-status.desktop;\
-		#sudo reboot;\
+		sudo reboot;\
 	else\
 		sudo rm -f /usr/bin/gpu-switch;\
 		sudo rm -f /usr/bin/gpu-status;\
