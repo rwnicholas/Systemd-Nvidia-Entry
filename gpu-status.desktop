@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=gpu-status
+Exec=/usr/bin/gpu-status
+Terminal=false
+Type=Application
+Icon=dialog-information
