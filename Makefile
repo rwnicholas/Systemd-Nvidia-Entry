@@ -20,7 +20,8 @@ uninstall:
 	fi\
 	@if ! [[ `lsmod | grep nouveau` == '' ]]; then\
 		echo "Your system is going to reboot, please SAVE YOUR WORK before the password!";\
-		/usr/bin/gpu-switch && sudo rm -f /usr/bin/gpu-switch;\
+		sh gpu-switch.sh;\
+		sudo rm -f /usr/bin/gpu-switch;\
 		sudo rm -f /usr/bin/gpu-status;\
 		sudo rm -f /usr/lib/modprobe.d/optimus.conf;\
 		sudo reboot;\
