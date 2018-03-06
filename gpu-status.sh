@@ -1,3 +1,4 @@
+#!/bin/bash
 if [[ `lsmod | grep nouveau` == "" ]]; then
 	notify-send -i nvidia "Nvidia"
 else

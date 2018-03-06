@@ -1,3 +1,4 @@
+#!/bin/bash
 if ! [ -d ~/.cache/MarechalLima/ ]; then ## checks if the directory exist
 	mkdir ~/.cache/MarechalLima/ ## if it doesn't exist, here it's created
 fi
