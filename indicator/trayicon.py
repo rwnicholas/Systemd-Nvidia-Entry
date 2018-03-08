@@ -1,27 +1,22 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
-# Import PySide classes
 import sys
-import subprocess
-from PySide.QtCore import *
-from PySide.QtGui import *
-
+from PyQt5.QtWidgets import (QApplication, QSystemTrayIcon, QMenu)
+from PyQt5.QtGui import QIcon
+from subprocess import check_output
 
 class App:
 	def __init__(self):
 		# Create a Qt application
 		self.app = QApplication(sys.argv)
 		icon = None
-		status = None
 		try:
-			status = subprocess.check_output("lsmod")
-			if status.find("nouveau") != -1:
+			if 'nouveau' in str(check_output("lsmod")):
 				icon = QIcon("/usr/share/icons/Papirus/24x24@2x/panel/prime-intel.svg")
 			else:
 				icon = QIcon("/usr/share/icons/Papirus/24x24@2x/panel/prime-nvidia.svg")
 		except Exception as e:
-			#icon = QIcon("nvidia.svg")
-			print(status)
+			print(e)
 		menu = QMenu()
 		exitAction = menu.addAction("Exit")
 		exitAction.triggered.connect(sys.exit)
