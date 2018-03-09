@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=solus-prime-indicator
+Exec=/usr/bin/solus-prime-indicator
+Terminal=true
+Type=Application
+Icon=dialog-information
