@@ -1,9 +1,10 @@
 #!/usr/bin/python3
 
 import sys
+import os
 from PyQt5.QtWidgets import (QApplication, QSystemTrayIcon, QMenu)
 from PyQt5.QtGui import QIcon
-from subprocess import check_output
+from subprocess import check_output, check_call
 
 class App:
 	def __init__(self):
@@ -18,6 +19,10 @@ class App:
 		except Exception as e:
 			print(e)
 		menu = QMenu()
+		#Gpu-switch
+		switchAction = menu.addAction("Gpu-Switch")
+		switchAction.triggered.connect(self.switch)
+		#Exit
 		exitAction = menu.addAction("Exit")
 		exitAction.triggered.connect(sys.exit)
 
@@ -30,6 +35,12 @@ class App:
 		# Enter Qt application main loop
 		self.app.exec_()
 		sys.exit()
+
+	def switch(self):
+		try:
+			os.system('pkexec --user $(logname) /usr/bin/gpu-switch')
+		except Exception as e:
+			print(e)
 
 if __name__ == "__main__":
 	app = App()
