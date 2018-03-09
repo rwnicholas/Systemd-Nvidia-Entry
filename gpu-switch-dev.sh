@@ -1,8 +1,4 @@
 #!/bin/bash
-if [[ `whoami` == "root" ]]; then
-	echo "Hey! DO NOT use sudo"
-	exit
-fi
 if ! [ -d ~/.cache/MarechalLima/ ]; then ## checks if the directory exist
 	mkdir ~/.cache/MarechalLima/ ## if it doesn't exist, here it's created
 fi
