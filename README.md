@@ -1,10 +1,13 @@
 # Solus-Optimus-Switch
 * It's started as a fork from [Grub-Nvidia-Entry](https://github.com/Superdanby/Grub-Nvidia-Entry)
 * I'm trying this using Solus, but I believe that others systems can work with some tweaks.
-* **[Download here for Solus](https://www.dropbox.com/s/0ztla0bei6au6q2/SolusOptimusSwitch.zip?dl=0) the script switchgpu.sh and the Makefile for Solus**
+* **[Download here for Solus](https://www.dropbox.com/s/0ztla0bei6au6q2/SolusOptimusSwitch.zip?dl=0) the script gpu-switch.sh and the Makefile for Solus**
 
 ## Prerequisites
-*   Nvidia driver
+*   Nvidia driver
+#### For solus-prime-indicator
+*	python3-qt5
+*  	gpu-switch-nosudo
 
 ## Supported Operating Systems
 *   Solus
