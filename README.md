@@ -4,10 +4,10 @@
 * **[Download here for Solus](https://www.dropbox.com/s/0ztla0bei6au6q2/SolusOptimusSwitch.zip?dl=0) the script gpu-switch.sh and the Makefile for Solus**
 
 ## Prerequisites
-*   Nvidia driver
+*	Nvidia driver
 #### For solus-prime-indicator
-* python3-qt5
-* gpu-switch 
+*	python3-qt5
+*	gpu-switch-nosudo
 
 ## Supported Operating Systems
 *   Solus
