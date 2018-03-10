@@ -43,7 +43,7 @@ class App:
 			status = status.replace("'", "")
 			status = status[:-2]
 			status = status[1:]
-			print(status)
+			
 			if status == "nouveau":
 				check_call(['notify-send', '-i', 'dialog-information', 'Nouveau, please reboot!'])
 			elif status == "nouveau!":
@@ -52,6 +52,7 @@ class App:
 				check_call(['notify-send', '-i', 'nvidia', 'Nvidia, please reboot!'])
 			elif status == "nvidia!":
 				check_call(['notify-send', '-i', 'nvidia', 'Already Nvidia, please reboot!'])
+			check_call(["gnome-session-quit", "--reboot"])
 		except Exception as e:
 			print(e)
 
