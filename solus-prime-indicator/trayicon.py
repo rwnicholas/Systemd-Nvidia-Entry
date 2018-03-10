@@ -13,9 +13,9 @@ class App:
 		icon = None
 		try:
 			if 'nouveau' in str(check_output("lsmod")):
-				icon = QIcon("/usr/share/icons/Papirus/24x24@2x/panel/prime-intel.svg")
+				icon = QIcon.fromTheme("prime-intel")
 			else:
-				icon = QIcon("/usr/share/icons/Papirus/24x24@2x/panel/prime-nvidia.svg")
+				icon = QIcon.fromTheme("prime-nvidia")
 		except Exception as e:
 			print(e)
 		menu = QMenu()
@@ -43,7 +43,7 @@ class App:
 			status = status.replace("'", "")
 			status = status[:-2]
 			status = status[1:]
-			
+
 			if status == "nouveau":
 				check_call(['notify-send', '-i', 'dialog-information', 'Nouveau, please reboot!'])
 			elif status == "nouveau!":
