@@ -12,12 +12,12 @@ uninstall:
 		sh gpu-switch.sh;\
 		sudo rm -f /usr/bin/gpu-switch;\
 		sudo rm -f /usr/bin/gpu-status;\
-		sudo rm -f /usr/lib/modprobe.d/optimus.conf;\
 		sudo rm -f /usr/share/xdg/autostart/gpu-status.desktop;\
+		sudo rm -f /usr/lib/modprobe.d/optimus.conf;\
 		sudo reboot;\
 	else\
 		sudo rm -f /usr/bin/gpu-switch;\
 		sudo rm -f /usr/bin/gpu-status;\
-		sudo rm -f /usr/lib/modprobe.d/optimus.conf;\
 		sudo rm -f /usr/share/xdg/autostart/gpu-status.desktop;\
+		sudo rm -f /usr/lib/modprobe.d/optimus.conf;\
 	fi\
