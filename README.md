@@ -19,6 +19,8 @@
 *	You can also install with "make install" and use switchgpu from any place on terminal.
 
 ## Caution
+### DO NOT UPGRADE NVIDIA PACKAGE USING NOUVEAU
+* If you did: Ctrl + Alt + F2; After logging, type: sudo mv -f /etc/X11/xorg.conf.d/00-ldm.conf ~/.cache/MarechalLima/00-ldm.conf
 #### If you are updating your script, you should run 'make uninstall' before installing
 * /etc/X11/xorg.conf.d/00-ldm.conf is moved to ~/.cache/MarechalLima while using nouveau. MAKE A COPY FOR BACKUP! (the Makefile will create a copy at ~/.cache/00-ldm.conf.bkp)
 * /usr/lib/modprobe.d/nvidia.conf has 'blacklist' commented while using nouveau.
