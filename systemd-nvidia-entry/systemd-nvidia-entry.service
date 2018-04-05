@@ -1,0 +1,9 @@
+[Unit]
+Description=Systemd Nvidia Entry
+
+[Service]
+Type=idle
+ExecStart=/opt/MarechalLima/config-optimus.sh
+
+[Install]
+WantedBy=multi-user.target
