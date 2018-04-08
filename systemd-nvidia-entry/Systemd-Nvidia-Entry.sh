@@ -34,11 +34,6 @@ if [[ `sudo cat /mnt/loader/entries/$configFile | grep modprobe.blacklist=nvidia
 	sudo sed -i '/options/s/$/ modprobe.blacklist=nvidia,nvidia_drm,nvidia_modeset,nvidia_uvm/' /mnt/loader/entries/$configFile
 fi
 sudo cp -f /mnt/loader/entries/$configFile /mnt/loader/entries/nvidia.conf
-# # Enables nouveau by default
-# sudo sed -i 's/\<rd.driver.blacklist=nouveau\> //g' /mnt/loader/entries/$configFile
-# sudo sed -i 's/\<modprobe.blacklist=nouveau\> //g' /mnt/loader/entries/$configFile
-# sudo sed -i 's/\<nvidia-drm.modeset=1\> //g' /mnt/loader/entries/$configFile
-#
 sudo sed -i '/title/s/$/ Nvidia/' /mnt/loader/entries/nvidia.conf
 
 if [[ `sudo cat /mnt/loader/entries/nvidia.conf | grep rd.driver.blacklist=nouveau` == '' ]]; then
