@@ -15,7 +15,7 @@ done
 
 partitionEFI=$(lsblk -o NAME,FSTYPE -l | grep vfat)
 partitionEFI=${partitionEFI::5}
-if ! [[ `ls /mnt` == "" ]]; then
+if ! [[ `cat /proc/mounts | grep /mnt` == "" ]]; then
 	printf "\n/mnt is busy! Please unmount /mnt!"
 	printf "\nExiting...\n"
 	exit    
