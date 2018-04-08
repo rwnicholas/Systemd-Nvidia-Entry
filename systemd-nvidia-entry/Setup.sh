@@ -9,6 +9,7 @@ install(){
 	sudo systemctl enable systemd-nvidia-entry.service
 	chmod +x Systemd-Nvidia-Entry.sh
 	sh Systemd-Nvidia-Entry.sh
+	printf "Clr-boot-manager options with Nvidia modules disabled!\n"
 	echo " modprobe.blacklist=nvidia,nvidia_drm,nvidia_modeset,nvidia_uvm " | sudo tee -a /etc/kernel/cmdline 
 }
 
