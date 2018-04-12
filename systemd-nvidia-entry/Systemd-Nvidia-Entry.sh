@@ -47,6 +47,7 @@ if [[ `sudo cat /mnt/loader/entries/nvidia.conf | grep nvidia-drm.modeset=1` == 
 fi
 
 sudo sed -i 's/\<modprobe.blacklist=nvidia,nvidia_drm,nvidia_modeset,nvidia_uvm\> //g' /mnt/loader/entries/nvidia.conf
+sudo sed -i 's/blacklist/#blacklist/g' /usr/lib/modprobe.d/nvidia.conf
 printf "\nNew boot menu entry with Nvidia modules enabled\n"
 
 sudo umount /mnt
