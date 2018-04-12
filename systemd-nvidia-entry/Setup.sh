@@ -35,6 +35,7 @@ uninstall(){
 	fi
 	configFile=$(ls /mnt/loader/entries/ | grep $configFile)
 	sudo sed -i 's/\<modprobe.blacklist=nvidia,nvidia_drm,nvidia_modeset,nvidia_uvm\> //g' /mnt/loader/entries/$configFile
+	sudo sed -i "s/#blacklist/blacklist/g" /usr/lib/modprobe.d/nvidia.conf
 
 	if ! [[ -e /etc/X11/xorg.conf.d/00-ldm.conf ]]; then
 		sudo mv /opt/MarechalLima/00-ldm.conf /etc/X11/xorg.conf.d/00-ldm.conf -f
