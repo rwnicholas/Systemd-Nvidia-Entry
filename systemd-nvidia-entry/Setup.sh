@@ -7,6 +7,8 @@ install(){
 	sudo chmod 775 /opt/MarechalLima/config-optimus.sh
 	sudo cp systemd-nvidia-entry.service /etc/systemd/system/
 	sudo systemctl enable systemd-nvidia-entry.service
+	sudo cp Systemd-Nvidia-Entry.sh /usr/bin/Systemd-Nvidia-Entry
+	sudo chmod +x /usr/bin/Systemd-Nvidia-Entry
 	chmod +x Systemd-Nvidia-Entry.sh
 	sh Systemd-Nvidia-Entry.sh
 	printf "Clr-boot-manager options with Nvidia modules disabled!\n"
