@@ -28,7 +28,7 @@ sudo mount /dev/$partitionEFI /mnt
 printf "\n----------------------\n\n"
 printf "Configuring...\n"
 printf "Original boot options with Nvidia modules disabled!\n"
-configFile=`ls /mnt/loader/entries/ | grep -iv fallback | grep -i $systemRelease`
+configFile=`ls -t /mnt/loader/entries/ | grep -iv fallback | grep -i $systemRelease | head -1`
 
 if [[ `sudo cat /mnt/loader/entries/$configFile | grep modprobe.blacklist=nvidia,nvidia_drm,nvidia_modeset,nvidia_uvm` == '' ]]; then
 	sudo sed -i '/options/s/$/ modprobe.blacklist=nvidia,nvidia_drm,nvidia_modeset,nvidia_uvm/' /mnt/loader/entries/$configFile
