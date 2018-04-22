@@ -16,27 +16,31 @@ install(){
 }
 
 uninstall(){
+	mountPoint="/mnt"
 	partitionEFI=$(lsblk -o NAME,FSTYPE -l | grep vfat)
 	partitionEFI=${partitionEFI::-5}
-	if ! [[ `cat /proc/mounts | grep /mnt` == "" ]]; then
-		printf "\n/mnt is busy! Please unmount /mnt!"
-		printf "\nExiting...\n"
-		exit    
+	if ! [[ `cat /proc/mounts | grep /boot` == "" ]]; then
+		$mountPoint="/boot"
+	else
+		if ! [[ `cat /proc/mounts | grep /mnt` == "" ]]; then
+			printf "\n/mnt is busy! Please unmount /mnt!"
+			printf "\nExiting...\n"
+			exit    
+		fi
+		printf "\n----------------------\n\n"
+		printf "Mounting EFI Partition ($partitionEFI)\n"
+		sudo mount /dev/$partitionEFI $mountPoint
 	fi
 
-	printf "\n----------------------\n\n"
-	printf "Mounting EFI Partition ($partitionEFI)\n"
-	sudo mount /dev/$partitionEFI /mnt
-
-	sudo rm -f /mnt/loader/entries/nvidia.conf
+	sudo rm -f $mountPoint/loader/entries/nvidia.conf
 	configFile=$(uname -r)
 	if [[ `echo $configFile | grep current` ]]; then
 		configFile=${configFile::-8}
 	else
 		configFile=${configFile::-4}
 	fi
-	configFile=$(ls /mnt/loader/entries/ | grep $configFile)
-	sudo sed -i 's/\<modprobe.blacklist=nvidia,nvidia_drm,nvidia_modeset,nvidia_uvm\> //g' /mnt/loader/entries/$configFile
+	configFile=$(ls $mountPoint/loader/entries/ | grep $configFile)
+	sudo sed -i 's/\<modprobe.blacklist=nvidia,nvidia_drm,nvidia_modeset,nvidia_uvm\> //g' $mountPoint/loader/entries/$configFile
 	sudo sed -i "s/#blacklist/blacklist/g" /usr/lib/modprobe.d/nvidia.conf
 
 	if ! [[ -e /etc/X11/xorg.conf.d/00-ldm.conf ]]; then
@@ -47,7 +51,9 @@ uninstall(){
 	sudo systemctl disable systemd-nvidia-entry.service
 	sudo rm /etc/systemd/system/systemd-nvidia-entry.service
 	sudo sed -i 's/\<modprobe.blacklist=nvidia,nvidia_drm,nvidia_modeset,nvidia_uvm\> //g' /etc/kernel/cmdline
-	sudo umount /mnt
+	if [[ $mountPoint == "/mnt" ]]; then
+		sudo umount $mountPoint
+	fi
 }
 
 if [[ $1 == "rm" ]]; then
