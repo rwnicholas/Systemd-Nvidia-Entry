@@ -41,19 +41,21 @@ uninstall(){
 	fi
 	configFile=$(ls $mountPoint/loader/entries/ | grep $configFile)
 	sudo sed -i 's/\<modprobe.blacklist=nvidia,nvidia_drm,nvidia_modeset,nvidia_uvm\> //g' $mountPoint/loader/entries/$configFile
+	if [[ $mountPoint == "/mnt" ]]; then
+		sudo umount $mountPoint
+	fi
+
 	sudo sed -i "s/#blacklist/blacklist/g" /usr/lib/modprobe.d/nvidia.conf
 
 	if ! [[ -e /etc/X11/xorg.conf.d/00-ldm.conf ]]; then
 		sudo mv /opt/MarechalLima/00-ldm.conf /etc/X11/xorg.conf.d/00-ldm.conf -f
 	fi
 	echo "Removing directory /opt/MarechalLima"
+	sudo rm -f /usr/bin/Systemd-Nvidia-Entry
 	sudo rm -rf /opt/MarechalLima/
+	sudo sed -i 's/\<modprobe.blacklist=nvidia,nvidia_drm,nvidia_modeset,nvidia_uvm\> //g' /etc/kernel/cmdline
 	sudo systemctl disable systemd-nvidia-entry.service
 	sudo rm /etc/systemd/system/systemd-nvidia-entry.service
-	sudo sed -i 's/\<modprobe.blacklist=nvidia,nvidia_drm,nvidia_modeset,nvidia_uvm\> //g' /etc/kernel/cmdline
-	if [[ $mountPoint == "/mnt" ]]; then
-		sudo umount $mountPoint
-	fi
 }
 
 if [[ $1 == "rm" ]]; then
