@@ -1,5 +1,6 @@
 [Unit]
 Description=Systemd Nvidia Entry
+Before=graphical-session.target
 
 [Service]
 Type=idle
