@@ -6,9 +6,6 @@
 ## Prerequisites
 *	Nvidia driver
 *	make
-#### For solus-prime-indicator
-*	python3-qt5
-*	gpu-switch-nosudo
 
 ## Supported Operating Systems
 *   Solus
