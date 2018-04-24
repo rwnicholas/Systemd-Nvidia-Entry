@@ -4,7 +4,7 @@ Before=graphical-session.target
 
 [Service]
 Type=idle
-ExecStart=/opt/MarechalLima/config-optimus.sh
+ExecStart=/opt/Systemd-Nvidia-Entry/config-optimus.sh
 
 [Install]
 WantedBy=multi-user.target
