@@ -4,6 +4,7 @@
 
 ## Prerequisites
 *	Nvidia driver
+*	UEFI
 
 ## Supported Operating Systems
 *   Solus (tested on current kernel)
