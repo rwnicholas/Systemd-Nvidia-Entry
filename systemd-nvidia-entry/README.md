@@ -15,7 +15,7 @@
 *	You can use Setup.sh rm to remove the stuff
 
 ## Caution
-When booting, config-optimus.sh will verify whether you are using nouveau or nvidia, and while on nouveau 00-ldm.conf will be on /opt/MarechalLima/
+When booting, config-optimus.sh will verify whether you are using nouveau or nvidia, and while on nouveau 00-ldm.conf will be on /opt/Systemd-Nvidia-Entry/
 ## Donation
 [![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=nicholaslima%2erw%40gmail%2ecom&lc=US&item_name=Nicholas%20Lima%20de%20Souza%20Silva&item_number=MarechalLima&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted)
 

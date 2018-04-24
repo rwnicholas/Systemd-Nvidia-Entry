@@ -1,10 +1,10 @@
 #!/bin/bash
 
 install(){
-	sudo mkdir /opt/MarechalLima/ -p
-	echo "Making directory /opt/MarechalLima"
-	sudo cp config-optimus.sh /opt/MarechalLima/
-	sudo chmod 775 /opt/MarechalLima/config-optimus.sh
+	sudo mkdir /opt/Systemd-Nvidia-Entry/ -p
+	echo "Making directory /opt/Systemd-Nvidia-Entry"
+	sudo cp config-optimus.sh /opt/Systemd-Nvidia-Entry/
+	sudo chmod 775 /opt/Systemd-Nvidia-Entry/config-optimus.sh
 	sudo cp systemd-nvidia-entry.service /etc/systemd/system/
 	sudo systemctl enable systemd-nvidia-entry.service
 	sudo cp Systemd-Nvidia-Entry.sh /usr/bin/Systemd-Nvidia-Entry
