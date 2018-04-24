@@ -12,7 +12,8 @@ install(){
 	chmod +x Systemd-Nvidia-Entry.sh
 	sh Systemd-Nvidia-Entry.sh
 	printf "Clr-boot-manager options with Nvidia modules disabled!\n"
-	echo " modprobe.blacklist=nvidia,nvidia_drm,nvidia_modeset,nvidia_uvm " | sudo tee -a /etc/kernel/cmdline 
+	sudo mkdir -p /etc/kernel/
+	printf " modprobe.blacklist=nvidia,nvidia_drm,nvidia_modeset,nvidia_uvm" | sudo tee -a /etc/kernel/cmdline
 }
 
 uninstall(){
@@ -55,7 +56,7 @@ uninstall(){
 	echo "Removing directory /opt/Systemd-Nvidia-Entry"
 	sudo rm -f /usr/bin/Systemd-Nvidia-Entry
 	sudo rm -rf /opt/Systemd-Nvidia-Entry/
-	sudo sed -i 's/\<modprobe.blacklist=nvidia,nvidia_drm,nvidia_modeset,nvidia_uvm\> //g' /etc/kernel/cmdline
+	sudo sed -i 's/ \<modprobe.blacklist=nvidia,nvidia_drm,nvidia_modeset,nvidia_uvm\>//g' /etc/kernel/cmdline
 	sudo systemctl disable systemd-nvidia-entry.service
 	sudo rm /etc/systemd/system/systemd-nvidia-entry.service
 }
