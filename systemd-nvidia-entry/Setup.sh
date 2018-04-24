@@ -16,17 +16,18 @@ install(){
 }
 
 uninstall(){
-	mountPoint="/mnt"
+	mountPoint="/mnt/Systemd-Nvidia-Entry"
 	partitionEFI=$(lsblk -o NAME,FSTYPE -l | grep vfat)
 	partitionEFI=${partitionEFI::-5}
 	if ! [[ `cat /proc/mounts | grep /boot` == "" ]]; then
 		$mountPoint="/boot"
 	else
-		if ! [[ `cat /proc/mounts | grep /mnt` == "" ]]; then
-			printf "\n/mnt is busy! Please unmount /mnt!"
+		if ! [[ `cat /proc/mounts | grep /mnt/Systemd-Nvidia-Entry` == "" ]]; then
+			printf "\n/mnt/Systemd-Nvidia-Entry is busy! Please unmount /mnt/Systemd-Nvidia-Entry!"
 			printf "\nExiting...\n"
 			exit    
 		fi
+		sudo mkdir /mnt/Systemd-Nvidia-Entry -p
 		printf "\n----------------------\n\n"
 		printf "Mounting EFI Partition ($partitionEFI)\n"
 		sudo mount /dev/$partitionEFI $mountPoint
@@ -41,18 +42,18 @@ uninstall(){
 	fi
 	configFile=$(ls $mountPoint/loader/entries/ | grep $configFile)
 	sudo sed -i 's/\<modprobe.blacklist=nvidia,nvidia_drm,nvidia_modeset,nvidia_uvm\> //g' $mountPoint/loader/entries/$configFile
-	if [[ $mountPoint == "/mnt" ]]; then
+	if [[ $mountPoint == "/mnt/Systemd-Nvidia-Entry" ]]; then
 		sudo umount $mountPoint
 	fi
 
 	sudo sed -i "s/#blacklist/blacklist/g" /usr/lib/modprobe.d/nvidia.conf
 
 	if ! [[ -e /etc/X11/xorg.conf.d/00-ldm.conf ]]; then
-		sudo mv /opt/MarechalLima/00-ldm.conf /etc/X11/xorg.conf.d/00-ldm.conf -f
+		sudo mv /opt/Systemd-Nvidia-Entry/00-ldm.conf /etc/X11/xorg.conf.d/00-ldm.conf -f
 	fi
-	echo "Removing directory /opt/MarechalLima"
+	echo "Removing directory /opt/Systemd-Nvidia-Entry"
 	sudo rm -f /usr/bin/Systemd-Nvidia-Entry
-	sudo rm -rf /opt/MarechalLima/
+	sudo rm -rf /opt/Systemd-Nvidia-Entry/
 	sudo sed -i 's/\<modprobe.blacklist=nvidia,nvidia_drm,nvidia_modeset,nvidia_uvm\> //g' /etc/kernel/cmdline
 	sudo systemctl disable systemd-nvidia-entry.service
 	sudo rm /etc/systemd/system/systemd-nvidia-entry.service

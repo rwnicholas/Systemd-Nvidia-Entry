@@ -13,17 +13,18 @@ select yn in "Yes" "No"; do
 	esac
 done
 
-mountPoint="/mnt"
+mountPoint="/mnt/Systemd-Nvidia-Entry"
 partitionEFI=$(lsblk -o NAME,FSTYPE -l | grep vfat)
 partitionEFI=${partitionEFI::-5}
 if ! [[ `cat /proc/mounts | grep /boot` == "" ]]; then
-	$mountPoint="/boot"
+	mountPoint="/boot"
 else
-	if ! [[ `cat /proc/mounts | grep /mnt` == "" ]]; then
-		printf "\n/mnt is busy! Please unmount /mnt!"
+	if ! [[ `cat /proc/mounts | grep /mnt/Systemd-Nvidia-Entry` == "" ]]; then
+		printf "\n/mnt/Systemd-Nvidia-Entry is busy! Please unmount /mnt/Systemd-Nvidia-Entry!"
 		printf "\nExiting...\n"
 		exit    
 	fi
+	sudo mkdir /mnt/Systemd-Nvidia-Entry -p
 	printf "\n----------------------\n\n"
 	printf "Mounting EFI Partition ($partitionEFI)\n"
 	sudo mount /dev/$partitionEFI $mountPoint
@@ -54,6 +55,6 @@ sudo sed -i 's/\<modprobe.blacklist=nvidia,nvidia_drm,nvidia_modeset,nvidia_uvm\
 sudo sed -i 's/blacklist/#blacklist/g' /usr/lib/modprobe.d/nvidia.conf
 printf "\nNew boot menu entry with Nvidia modules enabled\n"
 
-if [[ $mountPoint == "/mnt" ]]; then
+if [[ $mountPoint == "/mnt/Systemd-Nvidia-Entry" ]]; then
 	sudo umount $mountPoint
 fi
