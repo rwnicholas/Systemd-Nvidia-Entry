@@ -20,7 +20,7 @@ uninstall(){
 	partitionEFI=$(lsblk -o NAME,FSTYPE -l | grep vfat)
 	partitionEFI=${partitionEFI::-5}
 	if ! [[ `cat /proc/mounts | grep /boot` == "" ]]; then
-		$mountPoint="/boot"
+		mountPoint="/boot"
 	else
 		if ! [[ `cat /proc/mounts | grep /mnt/Systemd-Nvidia-Entry` == "" ]]; then
 			printf "\n/mnt/Systemd-Nvidia-Entry is busy! Please unmount /mnt/Systemd-Nvidia-Entry!"
@@ -41,7 +41,8 @@ uninstall(){
 		configFile=${configFile::-4}
 	fi
 	configFile=$(ls $mountPoint/loader/entries/ | grep $configFile)
-	sudo sed -i 's/\<modprobe.blacklist=nvidia,nvidia_drm,nvidia_modeset,nvidia_uvm\> //g' $mountPoint/loader/entries/$configFile
+	sudo sed -i 's/ \<modprobe.blacklist=nvidia,nvidia_drm,nvidia_modeset,nvidia_uvm\>//g' $mountPoint/loader/entries/$configFile
+
 	if [[ $mountPoint == "/mnt/Systemd-Nvidia-Entry" ]]; then
 		sudo umount $mountPoint
 	fi
