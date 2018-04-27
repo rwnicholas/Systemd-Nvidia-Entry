@@ -17,7 +17,8 @@
 *	You can use Setup.sh rm to remove the stuff
 
 ## Solus Instructions 
-
+* Install bbswitch-current
+	`sudo eopkg install bbswitch-current`
 * Install nvidia proprietary drivers
 	`sudo eopkg install nvidia-glx-driver-current`
 * Reboot your computer
