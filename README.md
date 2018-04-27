@@ -24,6 +24,7 @@
 	`git clone git@github.com:MarechalLima/Systemd-Nvidia-Entry.git`
 * Execute Setup.sh to switch to Intel GPU as default then reboot
 * Execute Setup.sh rm to switch back to Nvidia GPU as default then reboot
+* Execute Setup.sh -n to switch back to Nvidia GPU as default then reboot (It disables nouveau, but as result the Nvidia GPU still ON, though it isn't used)
 
 ## Caution
 When booting, config-optimus.sh will verify whether you are using nouveau or nvidia, and while on nouveau 00-ldm.conf will be on /opt/Systemd-Nvidia-Entry/
