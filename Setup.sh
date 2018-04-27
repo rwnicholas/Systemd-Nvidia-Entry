@@ -48,8 +48,6 @@ uninstall(){
 		sudo umount $mountPoint
 	fi
 
-	sudo sed -i "s/#blacklist/blacklist/g" /usr/lib/modprobe.d/nvidia.conf
-
 	if ! [[ -e /etc/X11/xorg.conf.d/00-ldm.conf ]]; then
 		sudo mv /opt/Systemd-Nvidia-Entry/00-ldm.conf /etc/X11/xorg.conf.d/00-ldm.conf -f
 	fi
@@ -65,7 +63,4 @@ if [[ $1 == "rm" ]]; then
 	uninstall
 else
 	install
-	if [[ $1 == "-n" ]]; then
-		printf " nouveau.modeset=0" | sudo tee -a /etc/kernel/cmdline.d/40_switch_nvidia.conf
-	fi
 fi
