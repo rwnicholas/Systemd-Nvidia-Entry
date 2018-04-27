@@ -65,4 +65,7 @@ if [[ $1 == "rm" ]]; then
 	uninstall
 else
 	install
+	if [[ $1 == "-n" ]]; then
+		printf " nouveau.modeset=0" | sudo tee -a /etc/kernel/cmdline.d/40_switch_nvidia.conf
+	fi
 fi
