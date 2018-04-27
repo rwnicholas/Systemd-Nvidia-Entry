@@ -15,6 +15,16 @@
 *	Use Setup.sh to install the files
 *	You can use Setup.sh rm to remove the stuff
 
+## Solus Instructions 
+
+* Install nvidia proprietary drivers
+	`sudo eopkg install nvidia-glx-driver-current`
+* Reboot your computer
+* Clone scripts
+	`git clone git@github.com:MarechalLima/Systemd-Nvidia-Entry.git`
+* Execute Setup.sh to switch to Intel GPU then reboot
+* Execute Setup.sh rm to switch back to Nvidia GPU then reboot
+
 ## Caution
 When booting, config-optimus.sh will verify whether you are using nouveau or nvidia, and while on nouveau 00-ldm.conf will be on /opt/Systemd-Nvidia-Entry/
 ## Donation
