@@ -18,7 +18,9 @@
 
 ## Solus Instructions 
 * Install bbswitch-current
+
 	`sudo eopkg install bbswitch-current`
+	
 * Install nvidia proprietary drivers
 
 	`sudo eopkg install nvidia-glx-driver-current`
