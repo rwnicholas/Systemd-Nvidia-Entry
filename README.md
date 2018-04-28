@@ -8,11 +8,12 @@
 *	bbswitch-current
 
 ## Supported Operating Systems
-*   Solus (tested on current kernel)
-*	Maybe on Arch (but no need to execute Setup.sh, just Systemd-Nvidia-Entry.sh)
+*	Solus (tested on current kernel)
+*	Arch Linux
+		`sudo pacman -S lsb-release`
 
 ## Instructions
-*   After installing Nvidia drivers, and rebooting...
+*	After installing Nvidia drivers, and rebooting...
 *	Use Setup.sh to install the files
 *	You can use Setup.sh rm to remove the stuff
 
