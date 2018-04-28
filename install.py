@@ -21,7 +21,7 @@ if __name__ == '__main__':
         elif sys.argv[1] == "help":
             print("- install\n\tAllows you to install solus-prime-indicator")
             print("- remove\n\tRemove solus-prime-indicator")
-            print("- switch\t\n- intel \n\t\tAllow you to switch to your iGPU\n\t- nvidia\n\t\tAllow to switch to your dGPU")
+            print("- switch\t\n\t- intel \n\t\tAllow you to switch to your iGPU\n\t- nvidia\n\t\tSets your dGPU as default again")
         elif sys.argv[1] == "switch":
             if sys.argv[2] == "nvidia":
                 result = subprocess.run(['sh', 'Setup.sh', 'rm'], stdin=subprocess.PIPE, stdout=subprocess.PIPE)
