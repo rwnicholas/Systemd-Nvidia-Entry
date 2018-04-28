@@ -43,6 +43,10 @@ sudo sed -i '/title/s/$/ Nvidia/' $mountPoint/loader/entries/nvidia.conf
 
 sudo sed -i 's/ \<modprobe.blacklist=nvidia,nvidia_drm,nvidia_modeset,nvidia_uvm\>//g' $mountPoint/loader/entries/nvidia.conf
 
+if [[ `sudo cat $mountPoint/loader/entries/nvidia.conf | grep nvidia-drm.modeset=1` == '' ]]; then
+	sudo sed -i '/options/s/$/ nvidia-drm.modeset=1/' $mountPoint/loader/entries/nvidia.conf
+fi
+
 printf "\nNew boot menu entry with Nvidia modules enabled\n"
 
 if [[ $mountPoint == "/mnt/Systemd-Nvidia-Entry" ]]; then
