@@ -12,8 +12,8 @@ install(){
 	chmod +x Systemd-Nvidia-Entry.sh
 	sh Systemd-Nvidia-Entry.sh
 	printf "Clr-boot-manager options with Nvidia modules disabled!\n"
-	sudo mkdir -p /etc/kernel/
-	printf " modprobe.blacklist=nvidia,nvidia_drm,nvidia_modeset,nvidia_uvm " | sudo tee -a /etc/kernel/cmdline.d/40_switch_nvidia.conf
+	sudo mkdir -p /etc/kernel/cmdline.d/
+	printf " modprobe.blacklist=nvidia,nvidia_drm,nvidia_modeset,nvidia_uvm" | sudo tee -a /etc/kernel/cmdline.d/40_switch_nvidia.conf
 }
 
 uninstall(){
@@ -47,8 +47,6 @@ uninstall(){
 	if [[ $mountPoint == "/mnt/Systemd-Nvidia-Entry" ]]; then
 		sudo umount $mountPoint
 	fi
-
-	sudo sed -i "s/#blacklist/blacklist/g" /usr/lib/modprobe.d/nvidia.conf
 
 	if ! [[ -e /etc/X11/xorg.conf.d/00-ldm.conf ]]; then
 		sudo mv /opt/Systemd-Nvidia-Entry/00-ldm.conf /etc/X11/xorg.conf.d/00-ldm.conf -f
