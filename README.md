@@ -20,12 +20,33 @@
 * Install bbswitch-current
 	`sudo eopkg install bbswitch-current`
 * Install nvidia proprietary drivers
+
 	`sudo eopkg install nvidia-glx-driver-current`
+
 * Reboot your computer
+
 * Clone scripts
+
 	`git clone git@github.com:MarechalLima/Systemd-Nvidia-Entry.git`
-* Execute Setup.sh to switch to Intel GPU as default then reboot
-* Execute Setup.sh rm to switch back to Nvidia GPU as default then reboot
+
+* Execute the following command to switch to intel 
+
+	`python install.py switch intel`
+
+* Execute the following command to switch to Nvidia
+
+	`python install.py switch nvidia`
+
+* To install solus-prime-indicator use the command 
+
+	`python install.py install`
+
+* To remove solus-prime-indicator,  you must first switch to nvidia and then reboot. 
+
+* You can remove with the following command 
+
+	`python install.py remove`
+
 
 ## Caution
 When booting, config-optimus.sh will verify whether you are using intel or nvidia, and while on intel 00-ldm.conf will be on /opt/Systemd-Nvidia-Entry/
