@@ -18,12 +18,32 @@
 ## Solus Instructions 
 
 * Install nvidia proprietary drivers
+
 	`sudo eopkg install nvidia-glx-driver-current`
+
 * Reboot your computer
+
 * Clone scripts
+
 	`git clone git@github.com:MarechalLima/Systemd-Nvidia-Entry.git`
-* Execute Setup.sh to switch to Intel GPU then reboot
-* Execute Setup.sh rm to switch back to Nvidia GPU then reboot
+
+* Execute the following command to switch to intel 
+
+	`python install.py switch intel`
+
+* Execute the following command to switch to Nvidia
+
+	`python install.py switch nvidia`
+
+* To install solus-prime-indicator use the command 
+
+	`python install.py install`
+
+* To remove solus-prime-indicator,  you must first switch to nvidia and then reboot. 
+
+* You can remove with the following command 
+
+	`python install.py remove`
 
 ## Caution
 When booting, config-optimus.sh will verify whether you are using nouveau or nvidia, and while on nouveau 00-ldm.conf will be on /opt/Systemd-Nvidia-Entry/
