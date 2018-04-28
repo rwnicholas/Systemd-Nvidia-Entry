@@ -31,21 +31,21 @@
 
 * Execute the following command to switch to intel 
 
-	`python install.py switch intel`
+	`python3 install.py switch intel`
 
 * Execute the following command to switch to Nvidia
 
-	`python install.py switch nvidia`
+	`python3 install.py switch nvidia`
 
 * To install solus-prime-indicator use the command 
 
-	`python install.py install`
+	`python3 install.py install`
 
 * To remove solus-prime-indicator,  you must first switch to nvidia and then reboot. 
 
 * You can remove with the following command 
 
-	`python install.py remove`
+	`python3 install.py remove`
 
 
 ## Caution
