@@ -1,27 +1,58 @@
-# Solus-Optimus-Switch
+# Systemd-Nvidia-Entry
 * It's started as a fork from [Grub-Nvidia-Entry](https://github.com/Superdanby/Grub-Nvidia-Entry)
 * I'm trying this using Solus, but I believe that others systems can work with some tweaks.
-* **[Download here for Solus](https://www.dropbox.com/s/0ztla0bei6au6q2/SolusOptimusSwitch.zip?dl=0) the script gpu-switch.sh and the Makefile for Solus**
 
 ## Prerequisites
-*   Nvidia driver
-#### For solus-prime-indicator
-*	python3-qt5
-*  	gpu-switch-nosudo
+*	Nvidia driver
+*	UEFI
+*	bbswitch-current
 
 ## Supported Operating Systems
-*   Solus
+*	Solus (tested on current kernel)
+*	Arch Linux
+		`sudo pacman -S lsb-release`
 
 ## Instructions
-*   After installing Nvidia drivers, and rebooting...
-*	Use switchgpu.sh to switch between nouveau(battery economy) and nvidia(performance)
-*	You can also install with "make install" and use switchgpu from any place on terminal.
+*	After installing Nvidia drivers, and rebooting...
+*	Use Setup.sh to install the files
+*	You can use Setup.sh rm to remove the stuff
+
+## Solus Instructions 
+* Install bbswitch-current
+
+	`sudo eopkg install bbswitch-current`
+	
+* Install nvidia proprietary drivers
+
+	`sudo eopkg install nvidia-glx-driver-current`
+
+* Reboot your computer
+
+* Clone scripts
+
+	`git clone git@github.com:MarechalLima/Systemd-Nvidia-Entry.git`
+
+* Execute the following command to switch to intel 
+
+	`python3 install.py switch intel`
+
+* Execute the following command to switch to Nvidia
+
+	`python3 install.py switch nvidia`
+
+* To install solus-prime-indicator use the command 
+
+	`python3 install.py install`
+
+* To remove solus-prime-indicator,  you must first switch to nvidia and then reboot. 
+
+* You can remove with the following command 
+
+	`python3 install.py remove`
+
 
 ## Caution
-#### If you are updating your script, you should run 'make uninstall' before installing
-* /etc/X11/xorg.conf.d/00-ldm.conf is moved to ~/.cache/MarechalLima while using nouveau. MAKE A COPY FOR BACKUP! (the Makefile will create a copy at ~/.cache/00-ldm.conf.bkp)
-* /usr/lib/modprobe.d/nvidia.conf has 'blacklist' commented while using nouveau.
-
+When booting, config-optimus.sh will verify whether you are using intel or nvidia, and while on intel 00-ldm.conf will be on /opt/Systemd-Nvidia-Entry/
 ## Donation
 [![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=nicholaslima%2erw%40gmail%2ecom&lc=US&item_name=Nicholas%20Lima%20de%20Souza%20Silva&item_number=MarechalLima&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted)
 
