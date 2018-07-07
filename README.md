@@ -1,6 +1,7 @@
 # Systemd-Nvidia-Entry
 * It's started as a fork from [Grub-Nvidia-Entry](https://github.com/Superdanby/Grub-Nvidia-Entry)
 * I'm trying this using Solus, but I believe that others systems can work with some tweaks.
+* There are two versions, one with Nouveau and this one with bbswitch, if you prefer with nouveau go to Releases.
 
 ## Prerequisites
 *	Nvidia driver
@@ -12,10 +13,15 @@
 *	Arch Linux
 		`sudo pacman -S lsb-release`
 
+## Arch
+*	After installing Nvidia driver and lsb-release
+*	Run Systemd-Nvidia-Entry.sh
+*	On Arch there is no need to run it again after updates.
+
 ## Instructions
 *	After installing Nvidia drivers, and rebooting...
 *	Use Setup.sh to install the files
-*	You can use Setup.sh rm to remove the stuff
+*	You can use Setup.sh rm to remove the stuff 
 
 ## Solus Instructions 
 * Install bbswitch-current
