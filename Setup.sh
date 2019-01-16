@@ -1,7 +1,11 @@
 #!/bin/bash
 
+if ! [ -d /opt/solus-prime-indicator/ ]; then ## checks if the directory exist
+	sudo mkdir /opt/solus-prime-indicator/ -p ## if it doesn't exist, here it's created
+fi
+
 install(){
-	@if [[ `whoami` == "root" ]]; then
+	if [[ `whoami` == "root" ]]; then
 		echo "No root!"
 		exit 1
 	fi
