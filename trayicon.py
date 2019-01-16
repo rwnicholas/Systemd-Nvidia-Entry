@@ -20,8 +20,8 @@ class App:
 			print(e)
 		menu = QMenu()
 		#Gpu-switch
-		switchAction = menu.addAction("Gpu-Switch")
-		switchAction.triggered.connect(self.switch)
+		#switchAction = menu.addAction("Gpu-Switch")
+		#switchAction.triggered.connect(self.switch)
 		#Exit
 		exitAction = menu.addAction("Exit")
 		exitAction.triggered.connect(sys.exit)
