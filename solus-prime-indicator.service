@@ -1,0 +1,10 @@
+[Unit]
+Description=Solus Prime Indicator
+Before=graphical-session.target
+
+[Service]
+Type=idle
+ExecStart=/opt/solus-prime-indicator/config-optimus.sh
+
+[Install]
+WantedBy=multi-user.target
