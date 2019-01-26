@@ -19,7 +19,7 @@
 *	On Arch there is no need to run it again after updates.
 
 ## Solus Instructions 
-* ATTENTION: After a kernel update, you need to execute again:
+* **_ATTENTION_**: After a **kernel update**, you need to execute again:
 	
 	`Systemd-Nvidia-Entry`
 
