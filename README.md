@@ -19,9 +19,6 @@
 *	On Arch there is no need to run it again after updates.
 
 ## Solus Instructions 
-* **_ATTENTION_**: After a **kernel update**, you need to execute again:
-	
-	`Systemd-Nvidia-Entry`
 
 * Install bbswitch-current:
 
@@ -53,6 +50,10 @@
 
 	`python3 extra.py remove`
 
+## ATTENTION
+* After a **kernel update**, you need to execute again:
+	
+	`Systemd-Nvidia-Entry`
 
 ## Caution
 When booting, config-optimus.sh will verify whether you are using intel or nvidia, and while on intel 00-ldm.conf will be on /opt/Systemd-Nvidia-Entry/
