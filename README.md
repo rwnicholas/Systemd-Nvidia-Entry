@@ -18,43 +18,40 @@
 *	Run Systemd-Nvidia-Entry.sh
 *	On Arch there is no need to run it again after updates.
 
-## Instructions
-*	After installing Nvidia drivers, and rebooting...
-*	Use Setup.sh to install the files
-*	You can use Setup.sh rm to remove the stuff 
-
 ## Solus Instructions 
-* Install bbswitch-current
+* ATTENTION: After a kernel update, you need to execute again:
+	
+	`Systemd-Nvidia-Entry`
+
+* Install bbswitch-current:
 
 	`sudo eopkg install bbswitch-current`
 	
-* Install nvidia proprietary drivers
+* Install nvidia proprietary drivers:
 
-	`sudo eopkg install nvidia-glx-driver-current`
+	`sudo eopkg install nvidia-glx-driver-current nvidia-glx-driver-common nvidia-glx-driver-32bit`
 
 * Reboot your computer
 
-* Clone scripts
+* Clone scripts:
 
 	`git clone git@github.com:MarechalLima/Systemd-Nvidia-Entry.git`
 
-* Execute the following command to switch to intel 
+* Execute the following command to make Intel as default:
 
-	`python3 install.py switch intel`
+	`sh Setup.sh`
+* To get rid of everything and make Nvidia default again:
+	
+	`sh Setup.sh rm`
 
-* Execute the following command to switch to Nvidia
+### Solus-prime-indicator (it only shows which driver is up)
+* To install solus-prime-indicator use the command:
 
-	`python3 install.py switch nvidia`
+	`python3 extra.py install`
 
-* To install solus-prime-indicator use the command 
+* You can remove solus-prime-indicator with the following command:
 
-	`python3 install.py install`
-
-* To remove solus-prime-indicator,  you must first switch to nvidia and then reboot. 
-
-* You can remove with the following command 
-
-	`python3 install.py remove`
+	`python3 extra.py remove`
 
 
 ## Caution
